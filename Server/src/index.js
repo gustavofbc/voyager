@@ -6,5 +6,5 @@ app.use(express.json());
 app.use(routes);
 
 app.listen(3333, () => {
-    console.log('Server is UP! ');
+    console.log('Server is UP! \n http://localhost:3333/ticketPurchase \n http://localhost:3333/hostingPurchase');
   });
