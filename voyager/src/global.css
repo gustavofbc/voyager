@@ -2,4 +2,23 @@
     margin: 0;
     padding: 0%;
     box-sizing: border-box;
+    font-weight: 300;
+    font-family: 'Barlow';
+}
+
+select, option, span, label, input {
+    font-family: 'Barlow';
+    font-size: 16px;
+}
+
+:root {
+    --blue: #1214A1;
+    --blue-dark: #0D0FBC;
+    --black: #03030F;
+    --background: #E5E5E5;
+}
+
+
+.App {
+    background: var(--background);
 }
