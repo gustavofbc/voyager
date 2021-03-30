@@ -1,24 +1,26 @@
 * {
     margin: 0;
-    padding: 0%;
+    padding: 0;
     box-sizing: border-box;
-    font-weight: 300;
-    font-family: 'Barlow';
+    font-family: 'Hind', sans-serif;
 }
 
 select, option, span, label, input {
     font-family: 'Barlow';
-    font-size: 16px;
+    font-size: 1.4rem;
 }
 
 :root {
-    --blue: #1214A1;
-    --blue-dark: #0D0FBC;
     --black: #03030F;
-    --background: #E5E5E5;
+    --gray: #15151A;
+    --text: #E5E5E5;
+    --background-button: #cf4c20;
+    --background-button-dark: #805176;
+    --white: #FFF;
 }
 
 
 .App {
-    background: var(--background);
+    background-image: url('./assets/background.jpg');
+    background-size: cover;
 }
