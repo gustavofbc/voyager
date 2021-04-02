@@ -1,5 +1,27 @@
 * {
     margin: 0;
-    padding: 0%;
+    padding: 0;
     box-sizing: border-box;
+    font-family: 'Hind', sans-serif;
+}
+
+select, option, span, label, input {
+    font-family: 'Barlow';
+    font-size: 1.4rem;
+}
+
+:root {
+    --black: #03030F;
+    --gray: #15151A;
+    --text: #E5E5E5;
+    --background-button: #dbd817;
+    --background-button-dark: #dbd817;
+    --white: #FFF;
+}
+
+
+.App {
+    background-image: url('./assets/background2.jpg');
+    background-size: cover;
+    /* background-color: var(--background-button); */
 }

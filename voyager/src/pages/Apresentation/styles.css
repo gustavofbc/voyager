@@ -1,0 +1,194 @@
+.cointainer {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.navegation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.6rem;
+    background-color: rgba(255, 255, 255, 0.171);
+}
+
+.logo {
+    width: 14rem;
+}
+
+h2 {
+    max-width: 450px;
+    font-size: 42px;
+    font-weight: 500;
+    color: #fff;
+    margin-left: 8%;
+    padding: 2.4rem;
+    animation-duration: 2s;
+    animation-name: slideOpacityOn;
+}
+
+h2 .memories {
+    font-size: 42px;
+    font-weight: 600;
+    color: var(--background-button-dark);
+}
+
+ul {
+    list-style: none;
+}
+
+.sections {
+    width: 100%;
+    padding: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    animation-duration: 2s;
+    animation-name: slidein;
+}
+
+select, input {
+    margin: 10px 10px 10px 2px;
+    padding: 10px;
+    text-align: center;
+    color: var(--white);
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.171);
+
+    border: 0;
+    border-radius: 15px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+button {
+    width: 100px;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'Hind', sans-serif;
+
+    color: var(--white);
+    background-color: var(--background-button);
+    transition: 0.4s;
+}
+
+button:hover {
+    background-color: var(--background-button-dark);
+}
+
+.menu-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+}
+
+.menu-options li {
+    padding: 0.8rem;
+}
+
+.menu-options li a {
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.4s;
+}
+
+.menu-options li a:hover {
+    color: var(--background-button);
+}
+
+nav ul li a img {
+    width: 1.4rem;
+}
+
+nav ul li a img:hover {
+    fill: #fce57e;
+}
+
+.form-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation-duration: 2s;
+    animation-name: slideout;
+}
+
+.radios {
+    width: 20rem;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+}
+
+.quantidade {
+    width: 100px;
+}
+
+footer {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    background-color: var(--white);
+    opacity: 0.6;
+
+    position: fixed;
+    bottom: 0;
+}
+
+footer div {
+    width: 100%;
+    text-align: right;
+}
+
+footer span {
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: 'Hind', sans-serif;
+}
+
+@keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 300%;
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
+
+  @keyframes slideout {
+    from {
+      margin-right: 100%;
+      width: 300%;
+    }
+  
+    to {
+      margin-right: 0%;
+      width: 100%;
+    }
+  }
+
+  @keyframes slideOpacityOn {
+    from {
+      margin-top: 100%;
+      opacity: 0;
+    }
+  
+    to {
+      margin-top: 0%;
+      width: 100%;
+    }
+  }
