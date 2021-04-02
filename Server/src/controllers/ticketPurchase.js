@@ -3,16 +3,12 @@ const express = require('express');
 module.exports = {
     async index(request, response) {
         return response.json({
-            cidade:[
-                "Marabá",
-                "Belém",
-                "Ipixuna",
-                "Parauapebas",
-                "São João",
-                "São Domingos",
-                "Apinajés",
-                "Curionópolis",
-            ]
+            cidade:{
+                "Marabá": 1,
+                "Belém": 2,
+                "Ipixuna": 3,
+                "Parauapebas": 4,
+            }
         })
     },
 }
