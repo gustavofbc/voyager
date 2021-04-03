@@ -1,0 +1,41 @@
+.navegation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.6rem;
+    background-color: rgba(255, 255, 255, 0.171);
+}
+
+.logo {
+    width: 14rem;
+}
+
+.menu-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+}
+
+.menu-options li {
+    padding: 0.8rem;
+}
+
+.menu-options li a {
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.4s;
+}
+
+.menu-options li a:hover {
+    color: var(--background-button);
+    border-bottom: 3px solid var(--background-button);
+}
+
+nav ul li a img {
+    width: 1.4rem;
+}
+
+nav ul li a img:hover {
+    fill: #fce57e;
+}

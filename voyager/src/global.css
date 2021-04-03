@@ -14,8 +14,8 @@ select, option, span, label, input {
     --black: #03030F;
     --gray: #15151A;
     --text: #E5E5E5;
-    --background-button: #dbd817;
-    --background-button-dark: #dbd817;
+    --background-button: #76DB17;
+    --background-button-dark: #6FCF14;
     --white: #FFF;
 }
 
@@ -25,3 +25,39 @@ select, option, span, label, input {
     background-size: cover;
     /* background-color: var(--background-button); */
 }
+
+@keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 300%;
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
+
+  @keyframes slideout {
+    from {
+      margin-right: 100%;
+      width: 300%;
+    }
+  
+    to {
+      margin-right: 0%;
+      width: 100%;
+    }
+  }
+
+  @keyframes slideOpacityOn {
+    from {
+      margin-top: 100%;
+      opacity: 0;
+    }
+  
+    to {
+      margin-top: 0%;
+      width: 100%;
+    }
+  }
