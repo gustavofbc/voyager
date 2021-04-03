@@ -1,4 +1,5 @@
 const express = require('express');
+const flightSearch = require('./controllers/flightSearch');
 const hostingPurchase = require('./controllers/hostingPurchase');
 const ticketPurchase = require('./controllers/ticketPurchase');
 
@@ -10,5 +11,6 @@ routes.get('/', (request, response) => {
 
 routes.get('/ticketPurchase', ticketPurchase.index);
 routes.get('/hostingPurchase', hostingPurchase.index);
+routes.get('/flightSearch', flightSearch.find);
 
 module.exports = routes;
