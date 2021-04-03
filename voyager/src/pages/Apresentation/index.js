@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import api from '../../services/api';
 
 import "./styles.css";
 
@@ -8,8 +9,20 @@ export default function Apresentation() {
     const [dataOrigem, setDataOrigem] = useState('');
     const [dataDestino, setDataDestino] = useState('');
 
+    const [cidades, setCidades] = useState([]);
+
     const [verify, setVerify] = useState(true);
 
+    //PARAMOS AQUI
+    async function loadCities() {
+        const response = await api.get('ticketPurchase');
+        console.log(JSON.parse(response.data));
+        setCidades(response.data);
+    };
+    
+    useEffect(() => {
+        loadCities();
+      },  []);
         function toggleModal(){
             document.querySelector('.modal-overlay').classList.toggle('active');
         }
@@ -20,7 +33,9 @@ export default function Apresentation() {
             <h2>
                 Viajar é <span className="memories">criar memórias</span> pelo mundo! 
             </h2>
-            <form >
+            <p>aaa{cidades}</p>
+
+            <form onSubmit={() => toggleModal()}>
                 <div className="sections">
                     <section>
                         <select required>
@@ -29,7 +44,7 @@ export default function Apresentation() {
                         </select>
 
                         <label for="ida">
-                            <input type="date" id="ida" required/>
+                            <input type="date" id="ida"onChange={(e) => {setOrigem(e.target.value)} } required/>
                         </label>
                     </section>
 
@@ -40,11 +55,11 @@ export default function Apresentation() {
                         </select>
 
                         {verify ? <label for="volta">
-                            <input type="date" id="volta" required/>
+                            <input type="date" id="volta" onChange={(e) => {setDestino(e.target.value)} } required/>
                         </label> : ''}
                     </section>
 
-                    <button onClick={() => toggleModal()}>Buscar</button>
+                    <button type="submit">Buscar</button>
                 </div>
 
                 <div className="form-options">
@@ -114,6 +129,7 @@ export default function Apresentation() {
                         <li>voo 4</li>
                         <li>voo 5</li>
                         <li>voo 6</li>
+                        <a href="#" class="button cancel" onClick={() => toggleModal()}>Cancelar</a>
                     </ul>
                 </div>
             </div>

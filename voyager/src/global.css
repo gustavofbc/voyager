@@ -17,6 +17,7 @@ select, option, span, label, input {
     --background-button: #76DB17;
     --background-button-dark: #6FCF14;
     --white: #FFF;
+    --negative: #e92929;
 }
 
 
