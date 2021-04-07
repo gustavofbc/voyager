@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../services/api';
 
+import airplane_up from '../../assets/icons/airplane_up.svg';
+import airplane_down  from '../../assets/icons/airplane_down.svg';
+
 import "./styles.css";
 
 export default function Apresentation() {
@@ -9,23 +12,72 @@ export default function Apresentation() {
     const [dataOrigem, setDataOrigem] = useState('');
     const [dataDestino, setDataDestino] = useState('');
 
-    const [cidades, setCidades] = useState([]);
+    const [cities, setCities] = useState([]);
+    const [tickets, setTickets] = useState([]);
+    const [tickets2, setTickets2] = useState([]);
+    const [search, setSearch] = useState([]);
+    const [search2, setSearch2] = useState([]);
 
     const [verify, setVerify] = useState(true);
+    const [content, setContent] = useState(1);
 
-    //PARAMOS AQUI
     async function loadCities() {
         const response = await api.get('ticketPurchase');
-        console.log(JSON.parse(response.data));
-        setCidades(response.data);
+        
+        setCities(response.data.cities);
     };
-    
+
+    async function loadTickets() {
+        
+        let response = await api.get(`flightSearch`, {
+            params: {
+                search: search
+            }
+        });
+
+        setTickets(response.data);
+
+        response = await api.get(`flightSearch`, {
+            params: {
+                search: search2
+            }
+        });
+
+        setTickets2(response.data);
+    }
+
+    function buy() {
+        alert('Compra efetuada com sucesso!');
+        window.location.reload();
+    }
+
     useEffect(() => {
         loadCities();
       },  []);
-        function toggleModal(){
-            document.querySelector('.modal-overlay').classList.toggle('active');
+
+      useEffect(() => {
+        loadTickets();
+      },  [search]);
+
+    function toggleModal(){
+        document.querySelector('.modal-overlay').classList.toggle('active');
+    }
+
+    function switchToggle() {
+        if(verify) {
+            switchToggleFly();
+        } else {
+           setContent(3);
         }
+    }
+
+    function  switchToggleFly() {
+        if(content == 1) {
+            setContent(2);
+        } else if(content == 2){
+            setContent(1);
+        }
+    }
 
     return (
         <div className="cointainer">
@@ -33,29 +85,33 @@ export default function Apresentation() {
             <h2>
                 Viajar é <span className="memories">criar memórias</span> pelo mundo! 
             </h2>
-            <p>aaa{cidades}</p>
 
-            <form onSubmit={() => toggleModal()}>
+            <form onSubmit={(e) => {
+                e.preventDefault();
+                toggleModal();
+                setSearch(`${origem}x${destino}`);
+                setSearch2(`${destino}x${origem}`);
+            }}>
                 <div className="sections">
                     <section>
-                        <select required>
+                        <select required onChange={(e) => {setOrigem(e.target.value)}}>
                             <option value="">Origem</option>
-                            <option value="0">teste</option>
+                            {cities && cities.map(city => (<option value={city.id}>{city.name}</option>))}
                         </select>
 
                         <label for="ida">
-                            <input type="date" id="ida"onChange={(e) => {setOrigem(e.target.value)} } required/>
+                            <input type="date" id="ida" required/>
                         </label>
                     </section>
 
                     <section>
-                        <select required>
+                        <select required onChange={(e) => {setDestino(e.target.value)}}>
                             <option value="">Destino</option>
-                            <option value="0">teste</option>
+                            {cities && cities.map(city => (<option value={city.id}>{city.name}</option>))}
                         </select>
 
                         {verify ? <label for="volta">
-                            <input type="date" id="volta" onChange={(e) => {setDestino(e.target.value)} } required/>
+                            <input type="date" id="volta" required/>
                         </label> : ''}
                     </section>
 
@@ -122,15 +178,75 @@ export default function Apresentation() {
 
             <div className="modal-overlay">
                 <div className="modal">
-                    <ul>
-                        <li>voo 1</li>
-                        <li>voo 2</li>
-                        <li>voo 3</li>
-                        <li>voo 4</li>
-                        <li>voo 5</li>
-                        <li>voo 6</li>
-                        <a href="#" class="button cancel" onClick={() => toggleModal()}>Cancelar</a>
-                    </ul>
+                {
+                        content == 1 ?
+                        <>
+                            <ul>
+                                {tickets && tickets.map(ticket => (
+                                <li value={ticket.flight}>
+                                    <div className="ticket-container">
+                                        <div className="option-ticket">
+                                            <p>{ticket.departure_time}
+                                                <img src={airplane_up} alt="airplane"/>{ticket.origin}  para {ticket.destiny}<img src={airplane_down} alt="airplane"/>
+                                            {ticket.arrival_time}
+                                            </p>    
+                                        </div>
+                                        <div className="buy-ticket">
+                                            <span>R$ {ticket.value}</span>
+                                            <a className='button buy' onClick={() => switchToggle()}>Próximo</a>
+                                        </div>
+                                    </div>
+                                </li>))
+                                }
+                            </ul>
+                            <a href="#" class="button cancel" onClick={() => toggleModal()}>Cancelar</a>
+                        </>
+                        : content == 2 ?
+                        <>
+                            <ul>
+                                {tickets2 && tickets2.map(ticket2 => (
+                                <li value={ticket2.flight}>
+                                    <div className="ticket-container">
+                                        <div className="option-ticket">
+                                            <p>{ticket2.departure_time}
+                                                <img src={airplane_up} alt="airplane"/>{ticket2.origin}  para {ticket2.destiny}<img src={airplane_down} alt="airplane"/>
+                                            {ticket2.arrival_time}
+                                            </p>    
+                                        </div>
+                                        <div className="buy-ticket">
+                                            <span>R$ {ticket2.value}</span>
+                                            <a className='button buy' onClick={() => setContent(3)}>Comprar</a>
+                                        </div>
+                                    </div>
+                                </li>))
+                                }
+                            </ul>
+                            <a href="#" class="button return" onClick={() => switchToggle()}>Voltar</a>
+                        </>
+                        : content == 3 ?
+                        <form onSubmit={(e) => {
+                            e.preventDefault();
+                            buy();
+                        }}>
+                        <div>
+                            <div className="labels">
+                                <label for="card" className="input-card">
+                                    N° do Cartão: <input type="number" id="card" required/>
+                                </label>
+                                <label for="card" className="input-card">
+                                Cód.: <input type="number" id="card" required/>
+                                </label>
+                            </div>
+
+                            <div className="buttons">
+                                <a href="#" class="button cancel" onClick={() => setContent(true)}>Cancelar</a>
+                                <button type="submit" class="button buy">Confirmar</button>
+                            </div>
+                        </div>
+                        </form>
+                        : ''
+                    }
+                    
                 </div>
             </div>
 

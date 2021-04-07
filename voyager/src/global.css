@@ -17,7 +17,11 @@ select, option, span, label, input {
     --background-button: #76DB17;
     --background-button-dark: #6FCF14;
     --white: #FFF;
-    --negative: #e92929;
+    --red: #db1717;
+    --red-dark: #C71515;
+    --yellow-dark: #C71515;
+    --green: #19aa26;
+    --green-dark: #003828;
 }
 
 

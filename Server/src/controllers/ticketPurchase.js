@@ -3,7 +3,7 @@ const express = require('express');
 module.exports = {
     async index(request, response) {
         return response.json({
-            cidade:[
+            cities:[
                 {name: "Marabá", id: 1},
                 {name: "Belém", id: 2},
                 {name: "Ipixuna", id: 3},

@@ -18,106 +18,121 @@ const flights = [
         flight: "1x2",
         origin: "Marabá",
         destiny: "Belém",
-        schedule: "12:00",
-        Value: 300,
+        departure_time: "19:00",
+        arrival_time: "20:30",
+        value: 300,
     },
     {
         flight: "1x2",
         origin: "Marabá",
         destiny: "Belém",
-        schedule: "17:00",
-        Value: 300,
+        departure_time: "15:00",
+        arrival_time: "16:30",
+        value: 300,
     },
     {
         flight: "1x2",
         origin: "Marabá",
         destiny: "Belém",
-        schedule: "29:00",
-        Value: 300,
+        departure_time: "11:00",
+        arrival_time: "12:30",
+        value: 300,
     },
     {
         flight: "1x2",
         origin: "Marabá",
         destiny: "Belém",
-        schedule: "22:00",
-        Value: 300
+        departure_time: "08:00",
+        arrival_time: "09:30",
+        value: 300
     },
     {
         flight: "1x3",
         origin: "Marabá",
         destiny: "Ipixuna",
-        schedule: "12:00",
-        Value: 300
+        departure_time: "15:00",
+        arrival_time: "15:45",
+        value: 300
     },
     {
         flight: "1x4",
         origin: "Marabá",
         destiny: "Parauapebas",
-        schedule: "12:00",
-        Value: 300
+        departure_time: "17:00",
+        arrival_time: "18:00",
+        value: 300
     },
     {
         flight: "2x1",
         origin: "Belém",
         destiny: "Marabá",
-        schedule: "14:00",
-        Value: 300
+        departure_time: "15:30",
+        arrival_time: "17:00",
+        value: 300
     },
     {
         flight: "2x3",
         origin: "Belém",
         destiny: "Ipixuna",
-        schedule: "14:00",
-        Value: 300
+        departure_time: "12:00",
+        arrival_time: "12:30",
+        value: 300
     },
     {
         flight: "2x4",
         origin: "Belém",
         destiny: "Parauapebas",
-        schedule: "14:00",
-        Value: 300
+        departure_time: "12:00",
+        arrival_time: "12:30",
+        value: 300
     },
     {
         flight: "3x1",
         origin: "Ipixuna",
         destiny: "Marabá",
-        schedule: "14:00",
-        Value: 300
+        departure_time: "15:00",
+        arrival_time: "15:45",
+        value: 300
     },
     {
         flight: "3x2",
         origin: "Ipixuna",
         destiny: "Belém",
-        schedule: "14:00",
-        Value: 300
+        departure_time: "15:00",
+        arrival_time: "15:30",
+        value: 300
     },
     {
         flight: "3x4",
         origin: "Ipixuna",
         destiny: "Parauapebas",
-        schedule: "14:00",
-        Value: 300
+        departure_time: "16:00",
+        arrival_time: "16:30",
+        value: 300
     },
     {
         flight: "4x1",
         origin: "Parauapebas",
         destiny: "Marabá",
-        schedule: "15:00",
-        Value: 300
+        departure_time: "20:00",
+        arrival_time: "21:00",
+        value: 300
     },
     {
         flight: "4x2",
         origin: "Parauapebas",
         destiny: "Belém",
-        schedule: "15:00",
-        Value: 300
+        departure_time: "12:00",
+        arrival_time: "12:30",
+        value: 300
     },
     {
         flight: "4x3",
         origin: "Parauapebas",
         destiny: "Ipixuna",
-        schedule: "15:00",
-        Value: 300
+        departure_time: "08:00",
+        arrival_time: "08:30",
+        value: 300
     },
 
 ]
