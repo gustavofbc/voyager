@@ -10,7 +10,8 @@ Projeto desenvolvido como complemento para a nota na disciplina de Sistemas dist
 <p align="center">
   <a href="#pencil-descrição">Descrição</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#rocket-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#computer-instalação">Instalação</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="#computer-instalação">Instalação</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#mortar_board-equipe">Equipe</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </p>
 
 <br>
@@ -55,3 +56,8 @@ npm start
 <b>OBS:</b> deve-se utilizar```npm start``` tanto no diretório "voyager" quanto no "Server". Caso não abra uma guia em seu navegador ao executar os comandos, verifique o link [http://localhost:3000](http://localhost:3000)
 
 e voalá! :tada:
+
+## :mortar_board: Equipe
+<p> Andréia Letícia: https://github.com/andreia-3l </p>
+<p> Brayan Ferreira: https://github.com/brayanf13 </p>
+<p> Gustavo Felipe: https://github.com/gustavofbc </p>
