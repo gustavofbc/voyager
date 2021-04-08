@@ -9,8 +9,9 @@ import "./styles.css";
 export default function Apresentation() {
     const [origem, setOrigem] = useState('');
     const [destino, setDestino] = useState('');
-    const [dataOrigem, setDataOrigem] = useState('');
-    const [dataDestino, setDataDestino] = useState('');
+    const [total, setTotal] = useState(0);
+    const [pessoas, setPessoas] = useState(0);
+    const [parcelas, setParcelas] = useState(1);
 
     const [cities, setCities] = useState([]);
     const [tickets, setTickets] = useState([]);
@@ -79,6 +80,24 @@ export default function Apresentation() {
         }
     }
 
+    function peopleCount(e) {
+        const aux = pessoas + Number(e);
+        setPessoas(aux);
+    }
+
+    function totalPay(e) {
+        setParcelas(e);
+        if(verify){
+            let aux = pessoas * 600;
+            aux = aux / e;
+            setTotal(aux);
+        } else {
+            let aux = pessoas * 300;
+            aux = aux / e;
+            setTotal(aux);
+        }
+    }
+
     return (
         <div className="cointainer">
             
@@ -131,9 +150,9 @@ export default function Apresentation() {
                     <br/>
 
                     <div className="form-selects">
-                        <select id="adulto" required>
+                        <select id="adulto" onChange={(e) => peopleCount(e.target.value)} required>
                             <option value="">0 Adulto</option>
-                            <option id="1" value="1">1 Adulto</option>
+                            <option id="1" value='1'>1 Adulto</option>
                             <option id="2" value="2">2 Adultos</option>
                             <option id="3" value="3">3 Adultos</option>
                             <option id="4" value="4">4 Adultos</option>
@@ -145,7 +164,7 @@ export default function Apresentation() {
                             <option id="10" value="10">10 Adultos</option>
                         </select>
 
-                        <select id="criança">
+                        <select id="criança" onChange={(e) => peopleCount(e.target.value)} required>
                             <option id="0" value="0">0 Criança</option>
                             <option id="1" value="1">1 Criança</option>
                             <option id="2" value="2">2 Crianças</option>
@@ -159,7 +178,7 @@ export default function Apresentation() {
                             <option id="10" value="10">10 Crianças</option>
                         </select>
 
-                        <select id="bebe">
+                        <select id="bebe" onChange={(e) => peopleCount(e.target.value)} required>
                             <option id="0" value="0">0 Bebê</option>
                             <option id="1" value="1">1 Bebê</option>
                             <option id="2" value="2">2 Bebês</option>
@@ -234,7 +253,14 @@ export default function Apresentation() {
                                     N° do Cartão: <input type="number" id="card" required/>
                                 </label>
                                 <label for="card" className="input-card">
-                                Cód.: <input type="number" id="card" required/>
+                                    Cód.: <input type="number" id="card" required/>
+                                </label>
+
+                                <label for="card" className="input-card">
+                                    Qtd. de parcelas: <input type="number" id="card" onChange={(e) => totalPay(e.target.value)} required/>
+                                </label>
+                                <label for="total" className="input-card">
+                                    Total a pagar: <input type="text" value={`${parcelas} X ${total}`} id="total"  disabled/>
                                 </label>
                             </div>
 

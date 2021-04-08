@@ -16,12 +16,12 @@ export default function Menu(){
 
         <ul className="menu-options">
             <li>
-                <a className="option">
+                <a className="option" href="/">
                     <img src={airplane} alt="airplane"/> Passagens
                 </a>
             </li>
             <li>
-                <a className="option">
+                <a className="option" href="/hosting">
                     <img src={briefcase} alt="briefcase"/> Hospedagem
                 </a>
             </li>

@@ -24,6 +24,9 @@ select, option, span, label, input {
     --green-dark: #003828;
 }
 
+a {
+  text-decoration: none;
+}
 
 .App {
     background-image: url('./assets/background2.jpg');
